@@ -8,13 +8,13 @@ DOTFILES_SUBDIR="$DOTFILES_REPO/dotfiles"
 
 # === USAGE CHECK ===
 if [ $# -ne 1 ]; then
-  echo "Usage: $0 [save|install]"
+  echo "Usage: $0 [add|install]"
   exit 1
 fi
 
 MODE="$1"
-if [[ "$MODE" != "save" && "$MODE" != "install" ]]; then
-  echo "Invalid mode: $MODE. Use 'save' or 'install'."
+if [[ "$MODE" != "add" && "$MODE" != "install" ]]; then
+  echo "Invalid mode: $MODE. Use 'add' or 'install'."
   exit 1
 fi
 
@@ -48,7 +48,7 @@ echo "Running in '$MODE' mode..."
 for src in "${!SYNC_PATHS[@]}"; do
   dest="${SYNC_PATHS[$src]}"
   
-  if [ "$MODE" == "save" ]; then
+  if [ "$MODE" == "add" ]; then
     echo "Updating: $src -> $dest"
     if [ -d "$src" ]; then
       rsync -va --delete "${RSYNC_EXCLUDES[@]}" "$src/" "$dest/"
@@ -75,7 +75,7 @@ done
 echo -e "\n\033[32mSync complete.\033[0m"
 
 # === OPTIONAL GIT COMMIT ===
-if [ "$MODE" == "save" ]; then
+if [ "$MODE" == "add" ]; then
   cd "$DOTFILES_REPO"
   if [ -n "$(git status --porcelain)" ]; then
     echo ""
