@@ -197,16 +197,16 @@ bar {
 	position top
 }
 
-# class                 border  bground text    indicator child_border
-client.focused          #FFFF00 #00FF00 #D4D7FF #87BFF7   #8FC8FA
-client.focused_inactive #D4D7FF #12121F #D4D7FF #D4D7FF   #D0D3FF
-client.unfocused        #63658B #12121F #D4D7FF #BD4277   #CCCFFF
-client.urgent           #BF4D7A #12121F #D4D7FF #BF4A7F   #BD4277
-client.placeholder      #12121F #12121F #D4D7FF #12121F   #222236
+# Theme colors
+# class                   border  backgr. text    indic.  child_border
+client.focused          #ffffff #ff0054 #ffffff #2e9ef4 
+client.focused_inactive #333333 #8338ec #ffffff #484e50
+client.unfocused        #333333 #000000 #bbbbbb #292d2e
+client.urgent           #2f343a #900000 #ffffff #900000
+client.placeholder      #F9FAF9 #061229 #FFFFFF #061229
+client.background       #000000
 
-client.background       #12121F
-
-for_window [class=".*"] border pixel 8
+for_window [class=".*"] border pixel 6 
 hide_edge_borders smart
-# gaps inner 12
-# smart_gaps on
+gaps inner 8 
+smart_gaps on
