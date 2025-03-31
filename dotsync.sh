@@ -23,10 +23,13 @@ declare -A SYNC_PATHS=(
   ["$HOME/.config/nvim"]="$DOTFILES_SUBDIR/nvim"
   ["$HOME/.config/zed"]="$DOTFILES_SUBDIR/zed"
   ["$HOME/.config/kitty"]="$DOTFILES_SUBDIR/kitty"
+
+
   ["$HOME/.vim"]="$DOTFILES_SUBDIR/.vim"
   ["$HOME/.zshrc"]="$DOTFILES_SUBDIR/.zshrc"
   ["$HOME/.bashrc"]="$DOTFILES_SUBDIR/.bashrc"
   ["$HOME/.tmux.conf"]="$DOTFILES_SUBDIR/.tmux.conf"
+  ["$HOME/.p10k.zsh"]="$DOTFILES_SUBDIR/.p10k.zsh"
 )
 
 # === EXCLUSIONS ===
@@ -36,6 +39,7 @@ EXCLUDE_DIRS=(
   "venv"
   "__pycache__"
   "undodir"
+  ".netrwhist"
 )
 
 RSYNC_EXCLUDES=()

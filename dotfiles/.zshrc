@@ -5,31 +5,32 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Use powerline
-USE_POWERLINE="true"
-# Has weird character width
-# Example:
-#    is not a diamond
-HAS_WIDECHARS="false"
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
 
-# Source zsh-config
-if [[ -e $HOME/.zsh/zsh-config ]]; then
-  source $HOME/.zsh/zsh-config
-fi
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# ZSH_THEME="powerlevel10k"
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+plugins=(
+  git
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+)
+
+source $ZSH/oh-my-zsh.sh
 
 # Use manjaro zsh prompt
 # if [[ -e $HOME/.zsh/zsh-prompt ]]; then
 #   source $HOME/.zsh/zsh-prompt
 # fi
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # nvm bash completion
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# 
 # Mounting laptop with NFS 
 # mount -t nfs {remote_pc_address}:/remote/dir /some/local/dir
 # sshfs -o allow_other,default_permissions user@hostname:/remote/dir /some/local/dir/"
@@ -72,3 +73,6 @@ export CHROME_EXECUTABLE="$HOME/dev/webdev/chrome-linux64/chrome"
 __git_files () { 
     _wanted files expl 'local files' _files     
 }
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
