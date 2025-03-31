@@ -8,14 +8,35 @@ DOTFILES_SUBDIR="$DOTFILES_REPO/dotfiles"
 
 # === USAGE CHECK ===
 if [ $# -ne 1 ]; then
-  echo "Usage: $0 [add|install]"
+  echo "Usage: $0 [add|install|help]"
+
   exit 1
 fi
 
 MODE="$1"
-if [[ "$MODE" != "add" && "$MODE" != "install" ]]; then
-  echo "Invalid mode: $MODE. Use 'add' or 'install'."
+if [[ "$MODE" != "help" && "$MODE" != "add" && "$MODE" != "install"  ]]; then
+  echo "Invalid mode: $MODE. Use 'help'."
   exit 1
+fi
+
+if [ "$MODE" == "help" ]; then
+
+  printf "\n"
+  printf "[help]   - help\n"
+  printf "[add]    - add changes to dotfile repository\n"
+  printf "[update] - update system config from dotfile repository\n"
+
+  printf "\n"
+  printf "Pre-requesites for terminal config\n"
+  printf "\n"
+  printf "\tInstall oh-my-zsh\n"
+  printf "\t sh -c \"\$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)\"\n"
+
+  printf "\n"
+  printf "\tInstall powerlevel10k\n"
+  printf "\tgit clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k\n"
+else
+    echo "Running in '$MODE' mode..."
 fi
 
 # === PATHS TO SYNC ===
@@ -47,7 +68,6 @@ for excl in "${EXCLUDE_DIRS[@]}"; do
   RSYNC_EXCLUDES+=(--exclude="$excl")
 done
 
-echo "Running in '$MODE' mode..."
 
 for src in "${!SYNC_PATHS[@]}"; do
   dest="${SYNC_PATHS[$src]}"
