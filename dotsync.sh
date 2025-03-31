@@ -44,6 +44,9 @@ declare -A SYNC_PATHS=(
   ["$HOME/.config/nvim"]="$DOTFILES_SUBDIR/nvim"
   ["$HOME/.config/zed"]="$DOTFILES_SUBDIR/zed"
   ["$HOME/.config/kitty"]="$DOTFILES_SUBDIR/kitty"
+  ["$HOME/.config/i3"]="$DOTFILES_SUBDIR/i3"
+  ["$HOME/.config/i3status"]="$DOTFILES_SUBDIR/i3status"
+  ["$HOME/.config/picom"]="$DOTFILES_SUBDIR/picom"
 
 
   ["$HOME/.vim"]="$DOTFILES_SUBDIR/.vim"
