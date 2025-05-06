@@ -1,0 +1,64 @@
+general {
+        output_format = "i3bar"
+        colors = true
+        color_good = "#a3be8c"
+        color_bad  = "#bf616a"
+        color_degraded = "#ebcb8b"
+        interval = 1
+        separator = "|"
+}
+
+
+order += "disk /"
+order += "ipv6"
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "battery all"
+order += "cpu_temperature 0"
+order += "cpu_usage"
+order += "volume master"
+order += "tztime local"
+
+disk "/" {
+  format = "/: %percentage_used"
+}
+
+ipv6 {
+	format_up = "%ip"
+	format_down = ""
+}
+
+wireless _first_ {
+        format_up = "ᯤ%quality %essid %ip (%bitrate)"
+        format_down = "W: down"
+}
+
+ethernet _first_ {
+        format_up = "E: %ip (%speed)"
+        format_down = ""
+}
+
+battery all {
+        format = "%status %percentage %remaining"
+        threshold_type=percentage
+        low_threshold=10
+}
+
+cpu_usage {
+	format = "CPU: %usage"
+}
+
+cpu_temperature 0 {
+	format = "%degrees °C"
+}
+
+volume master {
+	format = "V: %volume"
+	device = "default"
+	mixer = "Master"
+	mixer_idx = 0
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S"
+}

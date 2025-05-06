@@ -9,7 +9,7 @@ fi
 export ZSH="$HOME/.oh-my-zsh"
 
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="powerlevel10k"
+#ZSH_THEME="powerlevel10k"
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 plugins=(
@@ -69,6 +69,11 @@ alias nvimcfg='nvim $HOME/.config/nvim'
 export PATH="$PATH:$HOME/dev/webdev/flutter/bin"
 export CHROME_EXECUTABLE="$HOME/dev/webdev/chrome-linux64/chrome"
 
+export ANDROID_HOME=$HOME/Android/Sdk
+export ANDROID_SDK_ROOT=$ANDROID_HOME
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 # git autocompletion is slow..
 __git_files () { 
     _wanted files expl 'local files' _files     
@@ -76,3 +81,4 @@ __git_files () {
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH="${HOME}/.npm-global/bin:${PATH}"
