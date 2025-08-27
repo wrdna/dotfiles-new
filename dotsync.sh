@@ -24,7 +24,7 @@ if [ "$MODE" == "help" ]; then
   printf "\n"
   printf "[help]   - help\n"
   printf "[add]    - add changes to dotfile repository\n"
-  printf "[update] - update system config from dotfile repository\n"
+  printf "[install] - install dotfiles from dotfile repository\n"
 
   printf "\n"
   printf "Pre-requesites for terminal config\n"

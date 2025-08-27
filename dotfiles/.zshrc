@@ -79,6 +79,10 @@ __git_files () {
     _wanted files expl 'local files' _files     
 }
 
+alias eduroam='sh /home/andrew/dev/SecureW2_JoinNow.run'
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="${HOME}/.npm-global/bin:${PATH}"
+
+
